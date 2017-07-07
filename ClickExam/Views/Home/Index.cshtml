@@ -1,0 +1,31 @@
+﻿@model ClickExam.Models.Clik
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div> Click counter: 
+        @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+        {
+
+            @Html.DisplayFor(model => model.ClikCtr)
+            @Html.HiddenFor(model => model.ID)
+            @Html.HiddenFor(model => model.ClikCtr)
+
+            if (Model.ClikCtr == 10)
+            {
+                <p>Max counter value reached.</p>
+            }
+            <br />
+            <input type="submit" value="Click" />
+        }
+    </div>
+</body>
+</html>
